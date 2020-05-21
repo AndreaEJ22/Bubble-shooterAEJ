@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject Burbuja;
+    public GameObject Bubble;
     public Vector3 actualCoordinate;
+    private int Bubble;
     // Start is called before the first frame update
     void Start()
     {
-        for (int column = 0; burbuja < 12; ++burbuja)
+        for (int column = 0; Bubble < 12; ++Bubble)
+        for(; Bubble < 12; ++Bubble)
         {
             Instantiate(Burbuja);
             actualCoordinate = Burbuja.transform.position;
@@ -41,40 +43,7 @@ public class Respawn : MonoBehaviour
 
 
 
-          //shooter position
-          if(Input.GetButtonDown(“shooter1”)
-          {
-	        Ray ray1 = Camera.main.screenPointToRay(Input.mousePosition);
-            if (physics.Raycast(ray1, out hit, Mathf.Infinity))
-              {
-	            GameObject selectBubbleGO = hit.transform.gameObject;
-                int column = int.Parse(selectBubbleGO.name.Split(‘-’)[0]);
-                int row = int.Parse(selectBubbleGO.name.Split(‘-’)[1]);
-
-                Bubble selectedBubble = BubblesArray[column, row];
-              }
-            }
-
-
-
-         //expecting user to tap a bubble
-         if(!AreBubbleSelected)
-            {
-	           if (selectedBubble != null)
-            {
-	     SelectedBubbles = new List<Bubble>();
-         MarkBubbles(selectedBubbles, colum, row, selectedBubble.GameObject.tag);
-         if (selectedBubbles.count <minBubblesToRemove)
-         {
-	       foreach(Bubble el in SelectedBubbles)
-		   el.gameObject.transform.renderer.material = el.origianBubbleMaterial;
-	       return;
-         }
-          AreBubblesSelected = true;
-           }
-       }
-
-
+         
 
 
 
