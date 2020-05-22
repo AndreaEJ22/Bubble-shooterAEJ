@@ -6,28 +6,28 @@ public class Respawn : MonoBehaviour
 {
     public GameObject Bubble;
     public Vector3 actualCoordinate;
-    private int Bubble;
+    private int Bubble1;
     // Start is called before the first frame update
     void Start()
     {
-        for (int column = 0; Bubble < 12; ++Bubble)
-        for(; Bubble < 12; ++Bubble)
+        for (int column = 0; Bubble1 < 12; ++Bubble1)
+        for(; Bubble1 < 12; ++Bubble1)
         {
-            Instantiate(Burbuja);
-            actualCoordinate = Burbuja.transform.position;
+            Instantiate(Bubble);
+            actualCoordinate = Bubble.transform.position;
             actualCoordinate.x = actualCoordinate.x++;
-            Burbuja.transform.position = actualCoordinate;
-            _ = Instantiate(Burbuja, new Vector3(actualCoordinate * 2.0F, 0, 0), Quaternion.identity);
-
+            Bubble.transform.position = actualCoordinate;
+            _= Instantiate(Bubble, new Vector3(actualCoordinate * 2.0F, 0, 0), Quaternion.identity);
         }
 
         //Initializes the bubble
-        private void intializeBubbles()
+        private void intializeBubble()
         {
             for (int column = 0; column < BubbleColumns; column++)
             {
                 for (int row = 0; row BubbleRows; row++)
                {
+            UnityEditorInternal class MyMaterial
             MyMaterial material = MyMaterial.GetRanddomMaterial();//get a random color
                                                                   //create a new bubble
             var go = (GameObject)Instantiate(BubbleParameter, new Vector3((float)column * BubbleParameter.transforrm.localScale.x, (float)row * BubbleParameter.transform.localScale.y, 0f), Quaternion.idientity);

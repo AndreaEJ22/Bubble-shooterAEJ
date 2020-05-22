@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 2019587756}
   - component: {fileID: 2019587755}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
