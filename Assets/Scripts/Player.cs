@@ -1,55 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
-public class Player : MonoBehaviour
+public class Player: MonoBehaviour
 {
-    private string shooter1;
-    private object physics;
-    private object hit;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //shooter position
-        if (Input.GetButtonDown(shooter1))
-          {
-            Ray ray1 = Camera.main.screenPointToRay(Input.mousePosition);
-            if (physics.Raycast(ray1, out hit, Mathf.Infinity))
-            {
-                GameObject selectBubbleGO = hit.transform.gameObject;
-                int column = int.Parse(selectBubbleGO.name.Split(‘-’)[0]);
-                int row = int.Parse(selectBubbleGO.name.Split(‘-’)[1]);
-
-                Bubble selectedBubble = BubblesArray[column, row];
-            }
-        }
-
-
-
-        //expecting user to tap a bubble
-        if (!AreBubbleSelected)
-        {
-            if (selectedBubble != null)
-            {
-                SelectedBubbles = new List<Bubble>();
-                MarkBubbles(selectedBubbles, colum, row, selectedBubble.GameObject.tag);
-                if (selectedBubbles.count < minBubblesToRemove)
-                {
-                    foreach (Bubble el in SelectedBubbles)
-                        el.gameObject.transform.renderer.material = el.origianBubbleMaterial;
-                    return;
-                }
-                AreBubblesSelected = true;
-            }
-        }
-
-
-    }
-
+    private float speed = 5;
+    public Rigidbody2D rb;
     // Update is called once per frame
     void Update()
     {
+        //How the player move
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+        }
+
         
-    }
+    } 
 }
